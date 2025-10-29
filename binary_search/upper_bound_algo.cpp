@@ -21,13 +21,28 @@ int main() {
     vi  a = {10,20,30,40,50,60,70,80,90,100};
     int n = a.size();
 
-    int target = 60 ; 
-    auto it = upper_bound(a.begin(), a.end(), target);
 
-    int index = it - a.begin();
+    ll  start = 0 ; 
+    ll  target = 60 ; 
+    ll  end = n- 1; 
+    ll  ans = -1 ; 
+
+    while(start<=end){
+
+        ll mid = (start + end)/2 ; 
+        if(a[mid]<=target){
+            start = mid+1 ; 
+        }
+        else if (a[mid] > target){
+            ans = mid ; 
+            end = mid -1 ; 
+        }
+
+    }
 
 
-    cout<<"The upper bound index for "<< target <<" is: "<< index << "The element is "<<a[index]<< endl;
+
+    cout<<"The upper bound index for "<< target <<" is: "<< ans << "The element is "<<a[ans]<< endl;
 
     return 0;
 }
