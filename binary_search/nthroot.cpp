@@ -21,7 +21,7 @@ double CalculateBinomialPower(double base, int n, double m)
 {
     double val = 1.00;
 
-    /**Binomial  exponentition */
+    /**Binomial  exponentiation */
     while (n > 0)
     {
         if (n % 2 == 1)
