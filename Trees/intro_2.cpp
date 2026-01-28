@@ -26,6 +26,8 @@ int main(){
 
     cin>>n;
 
+    vector<ll>color(n+5, 0);; 
+
     vector<vector<ll>>gp(n+5); 
     for(ll i = 0 ;i<n-1;i++){
         ll x ,y  ; 
@@ -34,13 +36,19 @@ int main(){
         gp[y].push_back(x); 
     }
 
+    for(ll i=1;i<=n;i++){
+        cin>>color[i]; 
+    }
+
     ll  source = 1 ; 
     vector<ll>vis(n+5 , 0); 
-    vector<ll>child(n+5 , 0) ; 
+    vector<ll>count_ones(n+5 , 0) ; 
+
 
     queue<ll>q; 
     q.push(source);
     vis[source] =  1 ; 
+    count_ones[source] = color[source] ; 
     
     while(!q.empty()){
         ll ele = q.front(); 
@@ -50,27 +58,26 @@ int main(){
             if(vis[x]==0){
                 q.push(x); 
                 vis[x] = 1 ; 
-                count++; 
+                if(color[x]==1){
+                    count_ones[x] = count_ones[ele] + 1 ;
+                }
+                else{
+                    count_ones[x] = count_ones[ele] ;
+                }
             }   
         }
-         child[ele] = count ; 
     }
+
+
 
 
     for(ll i=1;i<=n;i++){
-        if(child[i] >= 1){
-            cout<<"Node "<<i<<" has "<<child[i]<<" child nodes"<<endl;
-        }
+      
+       cout<<count_ones[i]<<" "; 
     }
-
     cout<<endl; 
 
-    
-    for(ll i=1;i<=n;i++){
-        if(child[i]== 0){
-            cout<<"Node "<<i<<" is "<<"Lead Node"<<endl; 
-        }
-    }
+   
 
     return  0;
 

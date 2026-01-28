@@ -22,7 +22,7 @@ const int MOD = 1000000007;
 
 int main(){
 
-     ll n , v ; 
+     ll n ; 
 
     cin>>n;
 
@@ -56,16 +56,6 @@ int main(){
          child[ele] = count ; 
     }
 
-
-    for(ll i=1;i<=n;i++){
-        if(child[i] >= 1){
-            cout<<"Node "<<i<<" has "<<child[i]<<" child nodes"<<endl;
-        }
-    }
-
-    cout<<endl; 
-
-    
     for(ll i=1;i<=n;i++){
         if(child[i]== 0){
             cout<<"Node "<<i<<" is "<<"Lead Node"<<endl; 
