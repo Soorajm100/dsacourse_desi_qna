@@ -67,9 +67,5 @@ for(ll j=2;j<=n;j++){
 
     cout<<ans<<endl; 
 
-
-
-
-
     return 0 ; 
 }
